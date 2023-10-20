@@ -1,0 +1,11 @@
+USE dbtest;
+CREATE TABLE IF NOT EXISTS students 
+(
+  Id INT NOT NULL AUTO_INCREMENT,  
+  Name VARCHAR(100) NOT NULL,
+  Email VARCHAR(50) NULL,
+  Mobile VARCHAR(50) NULL,
+  Gender VARCHAR(20) NULL,
+  DateOfBirth datetime,
+  PRIMARY KEY (Id)
+);

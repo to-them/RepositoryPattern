@@ -1,0 +1,54 @@
+﻿@model IEnumerable<RepositoryPatternGenericEFUnitOfWorkMVC.DAL.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-md btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dept)
+        </th>
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dept)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeID }, htmlAttributes: new { @class = "btn btn-sm btn-primary" }) 
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeID },
+           htmlAttributes: new { @class = "btn btn-sm btn-warning" })
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeID },
+           htmlAttributes: new { @class = "btn btn-sm btn-danger",
+               @onclick = "return confirm('Are you sure you want to delete this record?')" })
+        </td>
+    </tr>
+}
+
+</table>
